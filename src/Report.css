@@ -1,0 +1,237 @@
+/* Force colors when printing */
+@media print {
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        margin: 0;
+        padding: 0;
+        page-break-after: always;
+    }
+
+
+}
+
+/* A4 page */
+.page {
+    margin: 0;
+    border: #000;
+    box-shadow: none;
+    width: 190mm;
+    /* min-height: 272mm; */
+    height: 272mm;
+    padding: 20mm;
+    box-sizing: border-box;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: relative;
+    margin: 0 auto 20px auto;
+    border: 1px solid #0f0e0e;
+    page-break-inside: avoid;
+}
+
+/* Header top right */
+/* .top {
+    background: #385d84;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+} */
+
+.top-right {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+}
+
+/* Title in center */
+.report-title {
+    margin-top: 40mm;
+    text-align: center;
+    /* text-decoration: underline; */
+    font-size: 20pt;
+    color: #2c3e50;
+}
+
+/* Center content box */
+.center-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 100mm;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-size: 14pt;
+    margin-top: 20mm;
+    background: #cfcfd7;
+    ;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16pt;
+    font-weight: bold;
+    text-decoration: underline;
+    color: blue;
+}
+
+
+.center-middle h3 {
+    margin-bottom: 10px;
+    font-size: 16pt;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.main-content {
+    margin-top: 60mm;
+    padding: 0;
+}
+
+.date {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.to-block {
+    margin-bottom: 20px;
+}
+
+.indent {
+    text-indent: 100px;
+}
+
+/* Tables - Fixed for proper width within padded container */
+.property-table,
+.details-table,
+.boundaries-table {
+    width: calc(100% + 25mm);
+    margin-left: -10mm;
+    margin-right: -20mm;
+    border-collapse: collapse;
+    margin-top: 0;
+    /* margin-bottom: 10px; */
+}
+
+.property-table th,
+.property-table td,
+.details-table th,
+.details-table td,
+.boundaries-table th,
+.boundaries-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+
+.property-table th,
+.details-table th,
+.boundaries-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Headers */
+.header h1,
+.header h2,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    /* margin-left: 0; */
+}
+
+
+.section {
+    margin-bottom: 20px;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.signature-line {
+    width: 200px;
+    height: 1px;
+    background: #000;
+    margin: 0 auto 10px auto;
+}
+
+/* Page break support */
+.page-break {
+    page-break-before: always;
+}
+
+/* Ensure content doesn't break across pages */
+.no-break {
+    page-break-inside: avoid;
+}
+
+/* Table row styling */
+.property-table tr,
+.details-table tr,
+.boundaries-table tr {
+    page-break-inside: avoid;
+}
+
+.container {
+    min-height: 241mm;
+}
+
+.top h2,
+.top h4 {
+    margin: 0;
+    /* ✅ removes gap between lines */
+    padding: 0;
+    /* ✅ removes padding */
+    line-height: 1.2;
+    /* ✅ tighter spacing */
+
+    text-align: center;
+    /* font-weight: bold; */
+    /* margin-bottom: 15px; */
+
+    /* padding-bottom: 5px; */
+
+
+
+}
+
+.top .title {
+
+    color: rgb(25, 0, 255);
+    /* ✅ red text */
+    font-weight: bold;
+    /* ✅ bold */
+
+}
+
+.top {
+
+    border-bottom: 1px solid black;
+    /* ✅ line under the content */
+
+}
+
+.top .demo {
+    color: red;
+
+}

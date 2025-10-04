@@ -1,0 +1,126 @@
+Full browser page setup html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+}
+
+.report-container {
+  width: 100%;
+  min-height: 100%;
+  padding: 40px 50px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+/* Form layout */
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px 30px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #34495e;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.section {
+  grid-column: 1 / -1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+button.btn {
+  grid-column: 1 / -1;
+  padding: 15px 25px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #0b74ba;
+  transform: translateY(-2px);
+}
+
+.h4 {
+  background: linear-gradient(135deg, #28a745, #34ce57);
+  color: #13e013f0;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+button.btn {
+  grid-column: 1 / -1;
+  padding: 15px 25px;
+  background-color: #13e143;
+  /* success green */
+  color: #12d807;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #218838;
+  /* darker green on hover */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
