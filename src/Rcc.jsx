@@ -1,6 +1,3 @@
-import Report from './Report';
-
-
 import React, { useState, useRef } from "react";
 import {
     TextField,
@@ -16,52 +13,81 @@ import {
 } from "@mui/material";
 
 import html2pdf from "html2pdf.js";
+import Report2 from './Report2';
 
 
-const Agriculture = () => {
-    const [formData, setFormData] = useState({
-        roles: "",
-        owner_name: "",
-        gut_type: [],
-        gut_no: [],
-        address: "",
-        bank_name: "",
-        property_type: "",
-        classification: "",
-        development_area: "",
-        flood_possibility: "",
-        civic_amenities: "",
-        communication: "",
-        present_use: "",
-        electricity: "",
-        water: "",
-        area: "",
-        shape: "",
-        demarcation: "",
-        frontage_road: "",
-        plot_surface: "",
-        surface_type: "",
-        na_status: "",
-        title: "",
-        direction: "",
-        east: "",
-        west: "",
-        south: "",
-        north: "",
-        // plot_no: "",
-        location: "",
-        grampanchayat: "",
-        document_inspected: "",
-        fmv: "",
-        valuation_words: "",
-        realizable_value: "",
-        distress_value: "",
-        crop: "",
 
-        date_of_visit: "",
-        year_range: "",
+const Rcc = () => {
 
-        government_valuation: "",
+const [formData, setFormData] = useState({
+  // PAGE 1 & 2
+  owner_name: "",
+  address: "",
+  roles: "",
+  bank_name: "",
+  date_of_visit: "",
+  // PAGE 3: General Information
+  purpose_of_valuation: "",
+  documents_inspected: "",
+  rs_no_hissa_no: "",
+  plot_no: "",
+  location: "",
+  grampanchayat: "",
+  property_type: "",
+  classification: "",
+  development_area: "",
+  flood_possibility: "",
+  civic_amenities: "",
+  communication: "",
+  present_use: "",
+  electricity: "",
+  drinking_water: "",
+  // PAGE 4: Land Details
+  area: "",
+  shape: "",
+  demarcation: "",
+  tenure: "",
+  frontage_road: "",
+  plot_surface: "",
+  surface_type: "",
+  na_status: "",
+  title: "",
+  direction: "",
+  // PAGE 5: Specifications
+  foundation: "",
+  super_structure: "",
+  plaster: "",
+  windows: "",
+  door: "",
+  flooring: "",
+  roof: "",
+  stair_case: "",
+  sanitary_ware: "",
+  electrification: "",
+  provision_drinking_water: "",
+  coloring: "",
+  kitchen: "",
+  wc_bath: "",
+  compound_wall: "",
+  ms_gate: "",
+  collapsible_shutter: "",
+  ms_safety_door: "",
+  main_door: "",
+  glazed_tile_dado: "",
+  built_up_area: "",
+  // PAGE 6: Boundaries
+  east: "",
+  west: "",
+  south: "",
+  north: "",
+  // PAGE 7: Valuation
+  fmv: "",
+  realizable_value: "",
+  distress_value: "",
+  government_valuation: "",
+  year_range: "",
+  // PAGE 8: Declaration
+  valuer_signature: "",
 
 
         guts: [
@@ -159,7 +185,7 @@ const Agriculture = () => {
         // }));
     };
 
-    const reportRef = useRef();
+    const report2Ref = useRef();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -184,15 +210,15 @@ const Agriculture = () => {
         console.log("✅ Form submitted:", formData);
 
         // 2. Generate PDF
-        const element = reportRef.current;
+        const element = report2Ref.current;
         if (!element) {
-            console.error("reportRef is null");
+            console.error("report2Ref is null");
             return;
         }
 
         const opt = {
             margin: 10,
-            filename: `Agri_valuation_${formData.owner_name || "report"}.pdf`,
+            filename: `Rcc_load_valuation_${formData.owner_name || "report"}.pdf`,
             image: { type: "jpeg", quality: 0.98 },
             html2canvas: { scale: 2, useCORS: true },
             jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
@@ -230,7 +256,7 @@ const Agriculture = () => {
 
 
             <Typography variant="h4" gutterBottom sx={{ color: "#340ef6ff", fontWeight: "bold", textAlign: "center", position: 'static', }}>
-                Valuation Report Form D.V. Shinde
+                Valuation report Form D.V. Shinde
             </Typography>
 
             <div className='report-container'>
@@ -440,11 +466,15 @@ const Agriculture = () => {
                                 required
                             >
                                 <MenuItem value=""><em>Select Type</em></MenuItem>
-                                <MenuItem value="an Irrigated Agricultural Land">an Irrigated Agricultural Land</MenuItem>
-                                <MenuItem value="Non-Irrigated Agricultural Land">Non-Irrigated Agricultural Land</MenuItem>
                                 <MenuItem value="Industrial Shed">Industrial Shed</MenuItem>
                                 <MenuItem value="Farm House">Farm House</MenuItem>
-                                <MenuItem value="An Open Plot">An Open Plot</MenuItem>
+                                <MenuItem value="Godown Building">Godown Building</MenuItem>
+                                <MenuItem value="Storage Shed">Storage Shed</MenuItem>
+                                 <MenuItem value="Cattle Shed">Cattle Shed</MenuItem>
+                                  <MenuItem value="Cold Storage">Cold Storage </MenuItem>
+    
+
+                                
                             </Select>
                         </FormControl>
 
@@ -850,12 +880,298 @@ const Agriculture = () => {
                             required
                         />
 
+<div>
+
+ <FormControl fullWidth margin="normal">
+        <InputLabel id="foundation-label">Foundation</InputLabel>
+        <Select
+          labelId="foundation-label"
+          multiple
+          name="foundation"
+          value={formData.foundation ? formData.foundation.split(", ") : []}
+          onChange={(e) => {
+            const {
+              target: { value },
+            } = e;
+            const stringValue =
+              typeof value === "string" ? value : value.join(", ");
+            handleChange({
+              target: {
+                name: "foundation",
+                value: stringValue,
+              },
+            });
+          }}
+          label="Foundation"
+        >
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="RCC Footing Foundation(1:2:4)">RCC Footing Foundation(1:2:4)</MenuItem>
+    <MenuItem value="Stone Masonry">Stone Masonry</MenuItem>
+     <MenuItem value="Both U.C.R & RCC Footing Foundation(1:6) & (1:2:4)">Both U.C.R & RCC Footing Foundation(1:6) & (1:2:4)</MenuItem>
+        <MenuItem value="U.C.R Masonry Foundation in C.M (1:6)">U.C.R Masonry Foundation in C.M (1:6)</MenuItem>
+               <MenuItem value="U.C.R Masonry Foundation in C.M (1:6)">U.C.R Masonry Foundation in C.M (1:6)</MenuItem>
+               <MenuItem value="Pile Foundation">Pile Foundation</MenuItem>
+                              <MenuItem value="M.S.Stanchion Foundation">M.S.Stanchion Foundation</MenuItem>
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Super Structure</InputLabel>
+  <Select name="super_structure" value={formData.super_structure} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+   <MenuItem value={'1\' 6" U.C.R Masonry in C.M (1:6) '}>
+  1' 6" U.C.R Masonry in C.M (1:6) 
+</MenuItem>
+
+    <MenuItem value={'Both 9" 4" thick B.B Masonry in C.M (1:6) & in C.M (1:4)'}>Both 9" 4" thick B.B Masonry in C.M (1:6) & in C.M (1:4)</MenuItem>
+    <MenuItem value={'6" thick B.B Masonry in C.M (1:5) '}>6" thick B.B Masonry in C.M (1:5)</MenuItem>
+    <MenuItem value={'9" thick Cement concrete block in C.M (1:5)'}>9" thick Cement concrete block in C.M (1:5)</MenuItem> 
+  <MenuItem value={'6" thick Rcc Wall'}>6" thick Rcc Wall</MenuItem> 
+   <MenuItem value="AAC block Masonry in  C.M (1:6)">AAC block Masonry in  C.M (1:6)</MenuItem>
+ 
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Plaster</InputLabel>
+  <Select name="plaster" value={formData.plaster} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Internal & External sand faced in C.M (1:6) & (1:4)">Internal & External sand faced in C.M (1:6) & (1:4)</MenuItem>
+    <MenuItem value="Internal neeru finished and external sand faced cement plaster">Internal neeru finished and external sand faced cement plaster</MenuItem>
+    <MenuItem value="Internal wall putty finished plaster">Internal wall putty finished plaster</MenuItem>
+    <MenuItem value="Internal sand faced & external cement pointing ">Internal sand faced & external cement pointing</MenuItem>
+    <MenuItem value="Textured External plaster">Textured External plaster</MenuItem>
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Windows</InputLabel>
+  <Select name="windows" value={formData.windows} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+
+    <MenuItem value="M.S.Grilled Glass paneled Aluminium sliding window">M.S.Grilled Glass paneled Aluminium sliding window </MenuItem>
+    <MenuItem value="M.S.Grilled Glass paneled Aluminium powder coated window">M.S.Grilled Glass paneled Aluminium powder coated window</MenuItem>
+    <MenuItem value="Teakwood framed Glass paneled  window">Teakwood framed Glass paneled  window</MenuItem>
+     <MenuItem value="Non-Teakhood framed Glass paneled  window">Non-Teakwood framed Glass paneled  window</MenuItem>
+      <MenuItem value="UPVC framed Glass paneled window">UPVC framed Glass paneled window</MenuItem>
+    <MenuItem value="Cement concrete framed bison paneled shutter window">Cement concrete framed bison paneled shutter window</MenuItem>
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Door</InputLabel>
+  <Select name="door" value={formData.door} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+
+      <MenuItem value="Main door Teakhood framed paneled door & Internal doors in granite framed flush doors">Main door Teakhood framed & Internal doors in granite framed flush doors</MenuItem>
+      <MenuItem value="Cement concrete framed flush door">Cement concrete framed flush door</MenuItem>
+            <MenuItem value="Cement concrete framed bison paneled door">Cement concrete framed bison paneled door</MenuItem>
+                     <MenuItem value=" W.C Bath PVC doors">W.C Bath PVC doors</MenuItem>
+                         <MenuItem value="M.S safety front doors">M.S safety front door</MenuItem>
+                          <MenuItem value="M.S safety doors front & rear">M.S safety doors front & rear</MenuItem>
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Flooring</InputLabel>
+  <Select name="flooring" value={formData.flooring} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Vitrified Tiles">Vitrified Tiles</MenuItem>
+    <MenuItem value="Ceramic Tiles">Ceramic Tiles</MenuItem>
+       <MenuItem value="M.M tile">M.M tile</MenuItem>
+    <MenuItem value="Marble">Marble</MenuItem>
+        <MenuItem value="Granite">Granite</MenuItem>
+            <MenuItem value="I.P.S flooring">I.P.S flooring</MenuItem>
+                <MenuItem value="kotah Stone flooring">kotah Stone flooring</MenuItem>
+                         <MenuItem value="Tandoor Stone flooring">Tandoor Stone flooring</MenuItem>
+                         <MenuItem value="Rough Shahabad Stone flooring">Rough Shahabad Tandoor Stone flooring</MenuItem>
+                          <MenuItem value="Wooden flooring">Wooden flooring</MenuItem>
+                
+            
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Roof</InputLabel>
+  <Select name="roof" value={formData.roof} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="RCC Slab">RCC Slab</MenuItem>
+    <MenuItem value="G.I Sheet">GI Sheet</MenuItem>
+       <MenuItem value="A.C Sheet">A.C Sheet</MenuItem>
+    <MenuItem value="Manglore tile">Manglore tile</MenuItem>
+        <MenuItem value="Wooden fall ceiling">Wooden fall ceiling</MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Stair Case</InputLabel>
+  <Select name="stair_case" value={formData.stair_case} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="RCC Dog leged">RCC Dog leged</MenuItem>
+    <MenuItem value="RCC straight flight">RCC straight flight</MenuItem>
+        <MenuItem value="RCC curved">RCC curved</MenuItem>
+        <MenuItem value="Spiral">Spiral</MenuItem>
+            <MenuItem value="Qurter turned">Qurter turned</MenuItem>
+             <MenuItem value="Bifurcated">Bifurcated</MenuItem>
+              <MenuItem value="Bifurcated">Bifurcated</MenuItem>
+          <MenuItem value="Fabricated">Fabricated</MenuItem>
+     
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Sanitary Ware</InputLabel>
+  <Select name="sanitary_ware" value={formData.sanitary_ware} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Second quality">Second quality</MenuItem>
+       <MenuItem value="Standard quality">Standard quality</MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Electrification</InputLabel>
+  <Select name="electrification" value={formData.electrification} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Concealed wiring">Concealed wiring</MenuItem>
+    <MenuItem value="Casing caping Wiring">Casing caping Wiring</MenuItem>
+   
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Provision of Drinking Water</InputLabel>
+  <Select name="drinking_water" value={formData.drinking_water} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Yes">Yes</MenuItem>
+    <MenuItem value="No">No</MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Coloring</InputLabel>
+  <Select name="coloring" value={formData.coloring} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+
+    <MenuItem value="Building is painted on either side ">Building is painted on either side</MenuItem>
+        
+    <MenuItem value="Building is not painted ">Building is not painted</MenuItem>
+    <MenuItem value="Building is painted on either side with oil painted doors and frames by Asian paint">Building is painted on either side with oil painted doors and frames by Asian paint</MenuItem>
+     <MenuItem value="Building is painted on either side with oil painted doors and frames by Luster paint">Building is painted on either side with oil painted doors and frames by Luster paint</MenuItem>
+    <MenuItem value="Internal Only">Internal Only</MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Kitchen</InputLabel>
+  <Select name="kitchen" value={formData.kitchen} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Kaddappa kitchen oota">Kaddappa kitchen oota</MenuItem>
+    <MenuItem value="Modular Kitchen  oota">Modular Kitchen oota</MenuItem>
+        <MenuItem value="Granite Kitchen oota">Granite Kitchen oota</MenuItem>
+         <MenuItem value="Marble Kitchen oota">Marble Kitchen oota</MenuItem>
+
+
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>WC Bath</InputLabel>
+  <Select name="wc_bath" value={formData.wc_bath} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="European Attached wc bath">European Attached wc bath</MenuItem>
+    <MenuItem value="Common">Common</MenuItem>
+        <MenuItem value="Attached">Attached</MenuItem>
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Compound Wall</InputLabel>
+  <Select name="compound_wall" value={formData.compound_wall} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+<MenuItem value="Not Applicable">Not Applicable</MenuItem>
+<MenuItem value={"Property is surrounded by 5' height 9\" thick B.B Masonry"}>Property is surrounded by 5' height 9\" thick B.B Masonry</MenuItem>
+<MenuItem value="Barbed wired fencing">Barbed wired fencing</MenuItem>
+<MenuItem value="Pre casted compound wall">Pre casted compound wall</MenuItem>
+<MenuItem value="U.C.R Masonry compound wall">U.C.R Masonry compound wall</MenuItem>
+
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>MS Gate</InputLabel>
+  <Select name="ms_gate" value={formData.ms_gate} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Provided">Provided</MenuItem>
+    <MenuItem value="Not Provided">Not Provided</MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Collapsible Shutter</InputLabel>
+  <Select name="collapsible_shutter" value={formData.collapsible_shutter} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Provided">Provided</MenuItem>
+    <MenuItem value="Not Provided">Not Provided</MenuItem>
+  </Select>
+</FormControl>
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>MS Safety Door</InputLabel>
+  <Select name="ms_safety_door" value={formData.ms_safety_door} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Provided">Provided</MenuItem>
+    <MenuItem value="Not Provided">Not Provided</MenuItem>
+  </Select>
+</FormControl>
+
+{/* <FormControl fullWidth margin="normal">
+  <InputLabel>Main Door</InputLabel>
+  <Select name="main_door" value={formData.main_door} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Teak Wood">Teak Wood</MenuItem>
+    <MenuItem value="Flush">Flush</MenuItem>
+   <MenuItem value="">Flush</MenuItem>
+
+  </Select>
+</FormControl> */}
+
+<FormControl fullWidth margin="normal">
+  <InputLabel>Glazed Tile Dado (Kitchen & W.C. Bath)</InputLabel>
+  <Select name="tile_dado" value={formData.tile_dado || ""} onChange={handleChange}>
+    <MenuItem value=""><em>Select</em></MenuItem>
+    <MenuItem value="Full height Glazed Tile Dado">Full height Glazed Tile Dado</MenuItem>
+    <MenuItem value="Not Provided">Not Provided</MenuItem>
+  </Select>
+</FormControl>
+
+
+                <TextField
+                                           label="built_up_area"
+                                           name="built_up_area"
+                                           value={formData.built_up_area}
+                                           onChange={handleChange}
+                                           fullWidth
+                                           margin="normal"
+                                           required
+                                       />                
+                               
+                                </div>
+
+
+
                         {/* Assuming guts is an array of objects */}
                         <Box>
                             <div className='section'>
                                 {formData.guts.map((gut, index) => {
                                     const gutNoKey = Object.keys(gut).find((k) => k.startsWith("gut_no"));
-
+                                    
                                     return (
                                         <div key={index} style={{ border: "1px solid #ccc", margin: "10px 0", padding: 10, borderRadius: 5 }}>
                                             <h4>Gut {index + 1}</h4>
@@ -1006,6 +1322,10 @@ const Agriculture = () => {
                                 renderValue={(selected) => selected.join(", ")}
                             >
                                 <MenuItem value="Vacant">Vacant</MenuItem>
+                                 <MenuItem value="No crop is gowing on it">No crop is gowing on it</MenuItem>
+                                 <MenuItem value="Rcc Bunglow">Rcc Bunglow</MenuItem>
+                                   <MenuItem value="Apartment Building">Apartment Building</MenuItem>
+                                    <MenuItem value="Load Bearing ">Apartment Building</MenuItem>
                                 <MenuItem value="Turmeric">Turmeric</MenuItem>
                                 <MenuItem value="Sugarcane">Sugarcane</MenuItem>
                                 <MenuItem value="Grapes">Grapes</MenuItem>
@@ -1046,11 +1366,11 @@ const Agriculture = () => {
             {/* Hidden / off-screen container for PDF generation */}
             <div style={{ position: "absolute", top: -9999, left: -9999 }}>
                 <div>
-                    <Report ref={reportRef} formData={formData} />
+                    <Report2 ref={report2Ref} formData={formData} />
                 </div>
             </div>
         </Box >
     );
 };
 
-export default Agriculture;
+export default Rcc;

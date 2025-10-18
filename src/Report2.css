@@ -1,0 +1,18 @@
+/* basic report styles used by Report2 */
+body, .page { font-family: Arial, sans-serif; color: #000; background: #fff; }
+.page { width: 210mm; min-height: 297mm; box-sizing: border-box; padding: 20mm; }
+.top { text-align: center; }
+.title { margin: 0; }
+.center { text-align: center; }
+.container { padding: 8px 0; }
+.property-table, .details-table, .boundaries-table { width: 100%; border-collapse: collapse; }
+.property-table th, .property-table td, .details-table th, .details-table td, .boundaries-table th, .boundaries-table td {
+  border: 1px solid #ccc; padding: 6px; text-align: left;
+}
+.valuation-item { margin-bottom: 12px; }
+.value { font-weight: bold; }
+.amount { font-weight: bold; }
+.words { font-style: italic; }
+.report-title { margin: 0; }
+.date { margin-bottom: 8px; }
+.to-block { margin: 8px 0; }

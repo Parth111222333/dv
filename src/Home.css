@@ -4,6 +4,7 @@
     text-align: center;
     margin-top: 100px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
 }
 
 .home-title {
@@ -30,9 +31,12 @@
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+     margin: 20px; /* 👈 adds space around each button */
+
 }
 
 .home-button:hover {
+    
     background-color: #388e3c;
     /* Darker green on hover */
 }
