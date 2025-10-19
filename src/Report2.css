@@ -1,5 +1,5 @@
 /* basic report styles used by Report2 */
-body, .page { font-family: Arial, sans-serif; color: #000; background: #fff; }
+body, .page { font-family: Arial, sans-serif; color: #000; background: hsl(0, 100%, 99%); }
 .page { width: 210mm; min-height: 297mm; box-sizing: border-box; padding: 20mm; }
 .top { text-align: center; }
 .title { margin: 0; }
@@ -7,7 +7,7 @@ body, .page { font-family: Arial, sans-serif; color: #000; background: #fff; }
 .container { padding: 8px 0; }
 .property-table, .details-table, .boundaries-table { width: 100%; border-collapse: collapse; }
 .property-table th, .property-table td, .details-table th, .details-table td, .boundaries-table th, .boundaries-table td {
-  border: 1px solid #ccc; padding: 6px; text-align: left;
+  border: 1px solid #f1e3e385; padding: 6px; text-align: left;
 }
 .valuation-item { margin-bottom: 12px; }
 .value { font-weight: bold; }

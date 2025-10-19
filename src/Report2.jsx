@@ -58,7 +58,9 @@ const Report2 = forwardRef(({ formData }, ref) => {
                     <div className="to-block">
                         To,<br />
                         Branch Manager,<br />
-                        {formData.bank_name}.
+                          Loan Proposal With  {[formData.bank_name, formData.bank_name_custom]
+                                    .filter(Boolean)
+                                    .join(", ")}
                     </div>
 
                     <p>Respected Sir,</p>
@@ -84,7 +86,9 @@ const Report2 = forwardRef(({ formData }, ref) => {
                         <tbody>
                             <tr>
                                 <th>Purpose of valuation</th>
-                                <td>Loan Proposal With {formData.bank_name}</td>
+                                <td>Loan Proposal With  {[formData.bank_name, formData.bank_name_custom]
+                                    .filter(Boolean)
+                                    .join(", ")}</td>
                             </tr>
                             <tr>
                                 <th>{formData.gut_type}.</th>
@@ -190,13 +194,13 @@ const Report2 = forwardRef(({ formData }, ref) => {
                             </tr>
                             <tr>
                                 <th>Document Inspected</th>
-                                <td>{formData.document_inspected}</td>
+                                <td>{formData.documents_inspected}</td>
                             </tr>
                         </tbody>
                     </table>
                     <br></br>
 
-                    
+
                     {/* Loop over all guts */}
                     {formData.gut_type &&
                         formData.guts.length > 0 &&
@@ -245,110 +249,158 @@ const Report2 = forwardRef(({ formData }, ref) => {
 
 
 
- {/* PAGE 5: Property Information */}
+            {/* PAGE 5: Property Information */}
             <div className="page">
                 <div className="container ">
-                
-                   <table
-                     className="specs-table"
-                     border={1}
-                     cellPadding={8}
-                     cellSpacing={0}
-                     style={{ width: "100%", borderCollapse: "collapse" }}
-                   >
-  <thead>
-    <tr style={{ backgroundColor: "#dcc7c7ff" }}>
-      <th>SPECIFICATIONS</th>
-      <th>DETAILS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1. Foundation</td>
-      <td>{formData.foundation}</td>
-    </tr>
-    <tr>
-      <td>2. Super Structure</td>
-      <td>{formData.super_structure}</td>
-    </tr>
-    <tr>
-      <td>3. Plaster</td>
-      <td>{formData.plaster}</td>
-    </tr>
-    <tr>
-      <td>4. Windows</td>
-      <td>{formData.windows}</td>
-    </tr>
-    <tr>
-      <td>5. Door</td>
-      <td>{formData.door}</td>
-    </tr>
-    <tr>
-      <td>6. Flooring</td>
-      <td>{formData.flooring}</td>
-    </tr>
-    <tr>
-      <td>7. Roof</td>
-      <td>{formData.roof}</td>
-    </tr>
-    <tr>
-      <td>8. Stair Case</td>
-      <td>{formData.stair_case}</td>
-    </tr>
-    <tr>
-      <td>9. Sanitary Ware</td>
-      <td>{formData.sanitary_ware}</td>
-    </tr>
-    <tr>
-      <td>10. Electrification</td>
-      <td>{formData.electrification}</td>
-    </tr>
-    <tr>
-      <td>11. Provision of drinking water</td>
-      <td>{formData.drinking_water}</td>
-    </tr>
-    <tr>
-      <td>12. Coloring</td>
-      <td>{formData.coloring}</td>
-    </tr>
-    <tr>
-      <td>13. Kitchen</td>
-      <td>{formData.kitchen}</td>
-    </tr>
-    <tr>
-      <td>14. WC bath</td>
-      <td>{formData.wc_bath}</td>
-    </tr>
-    <tr>
-      <td>15. Compound Wall</td>
-      <td>{formData.compound_wall}</td>
-    </tr>
-    <tr>
-      <td>16. MS Gate</td>
-      <td>{formData.ms_gate}</td>
-    </tr>
-    <tr>
-      <td>17. Collapsible Shutter</td>
-      <td>{formData.collapsible_shutter}</td>
-    </tr>
-    <tr>
-      <td>18. MS Safety Door</td>
-      <td>{formData.ms_safety_door}</td>
-    </tr>
-    {/* <tr>
+
+                    <table
+                        className="specs-table"
+                        border={1}
+                        cellPadding={8}
+                        cellSpacing={0}
+                        style={{ width: "100%", borderCollapse: "collapse" }}
+                    >
+                        <thead>
+                            <tr style={{ backgroundColor: "#dcc7c7ff" }}>
+                                <th>SPECIFICATIONS</th>
+                                <th>DETAILS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Foundation</td>
+                                <td>
+                                    {[formData.foundation, formData.foundation_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2. Super Structure</td>
+                                <td> {[formData.super_structure, formData.super_structure_custom]
+                                    .filter(Boolean)
+                                    .join(", ")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3. Plaster</td>
+                                <td> {[formData.plaster, formData.plaster_custom]
+                                    .filter(Boolean)
+                                    .join(", ")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4. Windows</td>
+                                <td>
+                                    {[formData.windows, formData.windows_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>5. Door</td>
+                                <td>
+                                    {[formData.door, formData.door_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>6. Flooring</td>
+                                <td>
+                                    {[formData.flooring, formData.flooring_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7. Roof</td>
+                                <td>
+                                    {[formData.roof, formData.roof_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8. Stair Case</td>
+                                <td>
+                                    {[formData.stair_case, formData.stair_case_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>9. Sanitary Ware</td>
+                                <td>{formData.sanitary_ware}</td>
+                            </tr>
+                            <tr>
+                                <td>10. Electrification</td>
+                                <td>{formData.electrification}</td>
+                            </tr>
+                            <tr>
+                                <td>11. Provision of drinking water</td>
+                                <td>{formData.drinking_water}</td>
+                            </tr>
+                            <tr>
+                                <td>12. Coloring</td>
+                                <td>
+                                    {[formData.coloring, formData.coloring_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13. Kitchen</td>
+                                <td>
+                                    {[formData.kitchen, formData.kitchen_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td>14. WC bath</td>
+                                <td>{formData.wc_bath}</td>
+                            </tr>
+                            <tr>
+                                <td>15. Compound Wall</td>
+                                <td>
+                                    {[formData.compound_wall, formData.compound_wall_custom]
+                                        .filter(Boolean)
+                                        .join(", ")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>16. MS Gate</td>
+                                <td>{formData.ms_gate}</td>
+                            </tr>
+                            <tr>
+                                <td>17. Collapsible Shutter</td>
+                                <td>{formData.collapsible_shutter}</td>
+                            </tr>
+                            <tr>
+                                <td>18. MS Safety Door</td>
+                                <td>{formData.ms_safety_door}</td>
+                            </tr>
+                            {/* <tr>
       <td>19. Main door</td>
       <td>{formData.main_door}</td>
     </tr> */}
-    <tr>
-      <td>19. Glazed tile dado for Kitchen &amp; W.C. bath</td>
-      <td>{formData.tile_dado}</td>
-    </tr>
-    <tr>
-      <td>20. Built up area</td>
-      <td>{formData.built_up_area}</td>
-    </tr>
-  </tbody>
-</table>
+                            <tr>
+                                <td>19. Glazed tile dado for Kitchen &amp; W.C. bath</td>
+                                <td>{formData.tile_dado}</td>
+                            </tr>
+                            <tr>
+                                <td>20. Built up area</td>
+                                <td>{formData.built_up_area}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

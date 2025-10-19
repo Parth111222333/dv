@@ -19,75 +19,75 @@ import Report2 from './Report2';
 
 const Rcc = () => {
 
-const [formData, setFormData] = useState({
-  // PAGE 1 & 2
-  owner_name: "",
-  address: "",
-  roles: "",
-  bank_name: "",
-  date_of_visit: "",
-  // PAGE 3: General Information
-  purpose_of_valuation: "",
-  documents_inspected: "",
-  rs_no_hissa_no: "",
-  plot_no: "",
-  location: "",
-  grampanchayat: "",
-  property_type: "",
-  classification: "",
-  development_area: "",
-  flood_possibility: "",
-  civic_amenities: "",
-  communication: "",
-  present_use: "",
-  electricity: "",
-  drinking_water: "",
-  // PAGE 4: Land Details
-  area: "",
-  shape: "",
-  demarcation: "",
-  tenure: "",
-  frontage_road: "",
-  plot_surface: "",
-  surface_type: "",
-  na_status: "",
-  title: "",
-  direction: "",
-  // PAGE 5: Specifications
-  foundation: "",
-  super_structure: "",
-  plaster: "",
-  windows: "",
-  door: "",
-  flooring: "",
-  roof: "",
-  stair_case: "",
-  sanitary_ware: "",
-  electrification: "",
-  provision_drinking_water: "",
-  coloring: "",
-  kitchen: "",
-  wc_bath: "",
-  compound_wall: "",
-  ms_gate: "",
-  collapsible_shutter: "",
-  ms_safety_door: "",
-  main_door: "",
-  glazed_tile_dado: "",
-  built_up_area: "",
-  // PAGE 6: Boundaries
-  east: "",
-  west: "",
-  south: "",
-  north: "",
-  // PAGE 7: Valuation
-  fmv: "",
-  realizable_value: "",
-  distress_value: "",
-  government_valuation: "",
-  year_range: "",
-  // PAGE 8: Declaration
-  valuer_signature: "",
+    const [formData, setFormData] = useState({
+        // PAGE 1 & 2
+        owner_name: "",
+        address: "",
+        roles: "",
+        bank_name: "",
+        date_of_visit: "",
+        // PAGE 3: General Information
+        purpose_of_valuation: "",
+        documents_inspected: "",
+        rs_no_hissa_no: "",
+        plot_no: "",
+        location: "",
+        grampanchayat: "",
+        property_type: "",
+        classification: "",
+        development_area: "",
+        flood_possibility: "",
+        civic_amenities: "",
+        communication: "",
+        present_use: "",
+        electricity: "",
+        drinking_water: "",
+        // PAGE 4: Land Details
+        area: "",
+        shape: "",
+        demarcation: "",
+        tenure: "",
+        frontage_road: "",
+        plot_surface: "",
+        surface_type: "",
+        na_status: "",
+        title: "",
+        direction: "",
+        // PAGE 5: Specifications
+        foundation: "",
+        super_structure: "",
+        plaster: "",
+        windows: "",
+        door: "",
+        flooring: "",
+        roof: "",
+        stair_case: "",
+        sanitary_ware: "",
+        electrification: "",
+        provision_drinking_water: "",
+        coloring: "",
+        kitchen: "",
+        wc_bath: "",
+        compound_wall: "",
+        ms_gate: "",
+        collapsible_shutter: "",
+        ms_safety_door: "",
+        main_door: "",
+        glazed_tile_dado: "",
+        built_up_area: "",
+        // PAGE 6: Boundaries
+        east: "",
+        west: "",
+        south: "",
+        north: "",
+        // PAGE 7: Valuation
+        fmv: "",
+        realizable_value: "",
+        distress_value: "",
+        government_valuation: "",
+        year_range: "",
+        // PAGE 8: Declaration
+        valuer_signature: "",
 
 
         guts: [
@@ -191,7 +191,7 @@ const [formData, setFormData] = useState({
         e.preventDefault();
 
         // List of fields that are OPTIONAL (all others will be treated as required)
-        const optionalFields = ["east", "west", "south", "north"];
+        const optionalFields = ["east", "west", "south", "north","Bank_name"];
 
         // Check for empty fields except optional ones
         const emptyField = Object.keys(formData).find((field) => {
@@ -375,7 +375,7 @@ const [formData, setFormData] = useState({
                                 name="bank_name"
                                 value={formData.bank_name}
                                 onChange={handleChange}
-                                required
+                                // required
                             >
                                 <MenuItem value="">Select Bank</MenuItem>
                                 <MenuItem value="Palus Sahakari Bank ltd. Palus, Main branch Palus">Palus Sahakari Bank ltd. Palus, Main branch Palus</MenuItem>
@@ -431,9 +431,19 @@ const [formData, setFormData] = useState({
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala</MenuItem>
-                                <MenuItem value="Other">Other</MenuItem>
+                                
 
                             </Select>
+                      
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Bank name"
+                                    name="bank_name_custom"
+                                    value={formData.bank_name_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom document type"
+                                />
                         </FormControl>
                     </div>
                     {/* </Paper> */}
@@ -470,11 +480,11 @@ const [formData, setFormData] = useState({
                                 <MenuItem value="Farm House">Farm House</MenuItem>
                                 <MenuItem value="Godown Building">Godown Building</MenuItem>
                                 <MenuItem value="Storage Shed">Storage Shed</MenuItem>
-                                 <MenuItem value="Cattle Shed">Cattle Shed</MenuItem>
-                                  <MenuItem value="Cold Storage">Cold Storage </MenuItem>
-    
+                                <MenuItem value="Cattle Shed">Cattle Shed</MenuItem>
+                                <MenuItem value="Cold Storage">Cold Storage </MenuItem>
 
-                                
+
+
                             </Select>
                         </FormControl>
 
@@ -483,8 +493,8 @@ const [formData, setFormData] = useState({
                             <InputLabel id="document-inspected-label">Document Inspected</InputLabel>
                             <Select
                                 labelId="document-inspected-label"
-                                name="document_inspected"
-                                value={formData.document_inspected}
+                                name="documents_inspected"
+                                value={formData.documents_inspected}
                                 onChange={handleChange}
                                 label="Document Inspected"
                                 required
@@ -704,7 +714,7 @@ const [formData, setFormData] = useState({
                                 <MenuItem value="Parallelogram">Parallelogram</MenuItem>
                                 <MenuItem value="irregular">Irregular</MenuItem>
                                 <MenuItem value="Odd Shaped">Odd Shaped</MenuItem>
-                                <MenuItem value="other">Other</MenuItem>
+                             
                             </Select>
                         </FormControl>
 
@@ -880,258 +890,542 @@ const [formData, setFormData] = useState({
                             required
                         />
 
-<div>
+                        <div>
 
- <FormControl fullWidth margin="normal">
-        <InputLabel id="foundation-label">Foundation</InputLabel>
-        <Select
-          labelId="foundation-label"
-          multiple
-          name="foundation"
-          value={formData.foundation ? formData.foundation.split(", ") : []}
-          onChange={(e) => {
-            const {
-              target: { value },
-            } = e;
-            const stringValue =
-              typeof value === "string" ? value : value.join(", ");
-            handleChange({
-              target: {
-                name: "foundation",
-                value: stringValue,
-              },
-            });
-          }}
-          label="Foundation"
-        >
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="RCC Footing Foundation(1:2:4)">RCC Footing Foundation(1:2:4)</MenuItem>
-    <MenuItem value="Stone Masonry">Stone Masonry</MenuItem>
-     <MenuItem value="Both U.C.R & RCC Footing Foundation(1:6) & (1:2:4)">Both U.C.R & RCC Footing Foundation(1:6) & (1:2:4)</MenuItem>
-        <MenuItem value="U.C.R Masonry Foundation in C.M (1:6)">U.C.R Masonry Foundation in C.M (1:6)</MenuItem>
-               <MenuItem value="U.C.R Masonry Foundation in C.M (1:6)">U.C.R Masonry Foundation in C.M (1:6)</MenuItem>
-               <MenuItem value="Pile Foundation">Pile Foundation</MenuItem>
-                              <MenuItem value="M.S.Stanchion Foundation">M.S.Stanchion Foundation</MenuItem>
-
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Super Structure</InputLabel>
-  <Select name="super_structure" value={formData.super_structure} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-   <MenuItem value={'1\' 6" U.C.R Masonry in C.M (1:6) '}>
-  1' 6" U.C.R Masonry in C.M (1:6) 
-</MenuItem>
-
-    <MenuItem value={'Both 9" 4" thick B.B Masonry in C.M (1:6) & in C.M (1:4)'}>Both 9" 4" thick B.B Masonry in C.M (1:6) & in C.M (1:4)</MenuItem>
-    <MenuItem value={'6" thick B.B Masonry in C.M (1:5) '}>6" thick B.B Masonry in C.M (1:5)</MenuItem>
-    <MenuItem value={'9" thick Cement concrete block in C.M (1:5)'}>9" thick Cement concrete block in C.M (1:5)</MenuItem> 
-  <MenuItem value={'6" thick Rcc Wall'}>6" thick Rcc Wall</MenuItem> 
-   <MenuItem value="AAC block Masonry in  C.M (1:6)">AAC block Masonry in  C.M (1:6)</MenuItem>
- 
-
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Plaster</InputLabel>
-  <Select name="plaster" value={formData.plaster} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Internal & External sand faced in C.M (1:6) & (1:4)">Internal & External sand faced in C.M (1:6) & (1:4)</MenuItem>
-    <MenuItem value="Internal neeru finished and external sand faced cement plaster">Internal neeru finished and external sand faced cement plaster</MenuItem>
-    <MenuItem value="Internal wall putty finished plaster">Internal wall putty finished plaster</MenuItem>
-    <MenuItem value="Internal sand faced & external cement pointing ">Internal sand faced & external cement pointing</MenuItem>
-    <MenuItem value="Textured External plaster">Textured External plaster</MenuItem>
-
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Windows</InputLabel>
-  <Select name="windows" value={formData.windows} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-
-    <MenuItem value="M.S.Grilled Glass paneled Aluminium sliding window">M.S.Grilled Glass paneled Aluminium sliding window </MenuItem>
-    <MenuItem value="M.S.Grilled Glass paneled Aluminium powder coated window">M.S.Grilled Glass paneled Aluminium powder coated window</MenuItem>
-    <MenuItem value="Teakwood framed Glass paneled  window">Teakwood framed Glass paneled  window</MenuItem>
-     <MenuItem value="Non-Teakhood framed Glass paneled  window">Non-Teakwood framed Glass paneled  window</MenuItem>
-      <MenuItem value="UPVC framed Glass paneled window">UPVC framed Glass paneled window</MenuItem>
-    <MenuItem value="Cement concrete framed bison paneled shutter window">Cement concrete framed bison paneled shutter window</MenuItem>
-
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Door</InputLabel>
-  <Select name="door" value={formData.door} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-
-      <MenuItem value="Main door Teakhood framed paneled door & Internal doors in granite framed flush doors">Main door Teakhood framed & Internal doors in granite framed flush doors</MenuItem>
-      <MenuItem value="Cement concrete framed flush door">Cement concrete framed flush door</MenuItem>
-            <MenuItem value="Cement concrete framed bison paneled door">Cement concrete framed bison paneled door</MenuItem>
-                     <MenuItem value=" W.C Bath PVC doors">W.C Bath PVC doors</MenuItem>
-                         <MenuItem value="M.S safety front doors">M.S safety front door</MenuItem>
-                          <MenuItem value="M.S safety doors front & rear">M.S safety doors front & rear</MenuItem>
-
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Flooring</InputLabel>
-  <Select name="flooring" value={formData.flooring} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Vitrified Tiles">Vitrified Tiles</MenuItem>
-    <MenuItem value="Ceramic Tiles">Ceramic Tiles</MenuItem>
-       <MenuItem value="M.M tile">M.M tile</MenuItem>
-    <MenuItem value="Marble">Marble</MenuItem>
-        <MenuItem value="Granite">Granite</MenuItem>
-            <MenuItem value="I.P.S flooring">I.P.S flooring</MenuItem>
-                <MenuItem value="kotah Stone flooring">kotah Stone flooring</MenuItem>
-                         <MenuItem value="Tandoor Stone flooring">Tandoor Stone flooring</MenuItem>
-                         <MenuItem value="Rough Shahabad Stone flooring">Rough Shahabad Tandoor Stone flooring</MenuItem>
-                          <MenuItem value="Wooden flooring">Wooden flooring</MenuItem>
-                
-            
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Roof</InputLabel>
-  <Select name="roof" value={formData.roof} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="RCC Slab">RCC Slab</MenuItem>
-    <MenuItem value="G.I Sheet">GI Sheet</MenuItem>
-       <MenuItem value="A.C Sheet">A.C Sheet</MenuItem>
-    <MenuItem value="Manglore tile">Manglore tile</MenuItem>
-        <MenuItem value="Wooden fall ceiling">Wooden fall ceiling</MenuItem>
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Stair Case</InputLabel>
-  <Select name="stair_case" value={formData.stair_case} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="RCC Dog leged">RCC Dog leged</MenuItem>
-    <MenuItem value="RCC straight flight">RCC straight flight</MenuItem>
-        <MenuItem value="RCC curved">RCC curved</MenuItem>
-        <MenuItem value="Spiral">Spiral</MenuItem>
-            <MenuItem value="Qurter turned">Qurter turned</MenuItem>
-             <MenuItem value="Bifurcated">Bifurcated</MenuItem>
-              <MenuItem value="Bifurcated">Bifurcated</MenuItem>
-          <MenuItem value="Fabricated">Fabricated</MenuItem>
-     
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Sanitary Ware</InputLabel>
-  <Select name="sanitary_ware" value={formData.sanitary_ware} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Second quality">Second quality</MenuItem>
-       <MenuItem value="Standard quality">Standard quality</MenuItem>
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Electrification</InputLabel>
-  <Select name="electrification" value={formData.electrification} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Concealed wiring">Concealed wiring</MenuItem>
-    <MenuItem value="Casing caping Wiring">Casing caping Wiring</MenuItem>
-   
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Provision of Drinking Water</InputLabel>
-  <Select name="drinking_water" value={formData.drinking_water} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Yes">Yes</MenuItem>
-    <MenuItem value="No">No</MenuItem>
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Coloring</InputLabel>
-  <Select name="coloring" value={formData.coloring} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-
-    <MenuItem value="Building is painted on either side ">Building is painted on either side</MenuItem>
-        
-    <MenuItem value="Building is not painted ">Building is not painted</MenuItem>
-    <MenuItem value="Building is painted on either side with oil painted doors and frames by Asian paint">Building is painted on either side with oil painted doors and frames by Asian paint</MenuItem>
-     <MenuItem value="Building is painted on either side with oil painted doors and frames by Luster paint">Building is painted on either side with oil painted doors and frames by Luster paint</MenuItem>
-    <MenuItem value="Internal Only">Internal Only</MenuItem>
-  </Select>
-</FormControl>
-
-<FormControl fullWidth margin="normal">
-  <InputLabel>Kitchen</InputLabel>
-  <Select name="kitchen" value={formData.kitchen} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Kaddappa kitchen oota">Kaddappa kitchen oota</MenuItem>
-    <MenuItem value="Modular Kitchen  oota">Modular Kitchen oota</MenuItem>
-        <MenuItem value="Granite Kitchen oota">Granite Kitchen oota</MenuItem>
-         <MenuItem value="Marble Kitchen oota">Marble Kitchen oota</MenuItem>
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="foundation-label">Foundation</InputLabel>
+                                <Select
+                                    labelId="foundation-label"
+                                    multiple
+                                    name="foundation"
+                                    value={formData.foundation ? formData.foundation.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue =
+                                            typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "foundation",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Foundation"
+                                >
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="RCC Footing Foundation(1:2:4)">RCC Footing Foundation(1:2:4)</MenuItem>
+                                    <MenuItem value="Stone Masonry">Stone Masonry</MenuItem>
+                                    <MenuItem value="Both U.C.R & RCC Footing Foundation(1:6) & (1:2:4)">Both U.C.R & RCC Footing Foundation(1:6) & (1:2:4)</MenuItem>
+                                    <MenuItem value="U.C.R Masonry Foundation in C.M (1:6)">U.C.R Masonry Foundation in C.M (1:6)</MenuItem>
+                                    <MenuItem value="U.C.R Masonry Foundation in C.M (1:6)">U.C.R Masonry Foundation in C.M (1:6)</MenuItem>
+                                    <MenuItem value="Pile Foundation">Pile Foundation</MenuItem>
+                                    <MenuItem value="M.S.Stanchion Foundation">M.S.Stanchion Foundation</MenuItem>
 
 
 
-  </Select>
-</FormControl>
+                                </Select>
+                                {(
+                                    <TextField
+                                        fullWidth
+                                        margin="normal"
+                                        label="Specify Foundation Type"
+                                        name="foundation_custom"
+                                        value={formData.foundation_custom || ""}
+                                        onChange={handleChange}
+                                        placeholder="Enter custom foundation type"
+                                    />
+                                )}
+                            </FormControl>
 
-<FormControl fullWidth margin="normal">
-  <InputLabel>WC Bath</InputLabel>
-  <Select name="wc_bath" value={formData.wc_bath} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="European Attached wc bath">European Attached wc bath</MenuItem>
-    <MenuItem value="Common">Common</MenuItem>
-        <MenuItem value="Attached">Attached</MenuItem>
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="super_structure">super structure</InputLabel>
+                                <Select
+                                    labelId="foundation-label"
+                                    multiple
+                                    name="super_structure"
+                                    value={formData.super_structure ? formData.super_structure.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue =
+                                            typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "super_structure",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="super structure"
+                                >
+                                    <MenuItem value={'1\' 6" U.C.R Masonry in C.M (1:6) '}>1' 6" U.C.R Masonry in C.M (1:6) </MenuItem>
+                                    <MenuItem value={'Both 9" 4" thick B.B Masonry in C.M (1:6) & in C.M (1:4)'}>Both 9" 4" thick B.B Masonry in C.M (1:6) & in C.M (1:4)</MenuItem>
+                                    <MenuItem value={'6" thick B.B Masonry in C.M (1:5) '}>6" thick B.B Masonry in C.M (1:5)</MenuItem>
+                                    <MenuItem value={'9" thick Cement concrete block in C.M (1:5)'}>9" thick Cement concrete block in C.M (1:5)</MenuItem>
+                                    <MenuItem value={'6" thick Rcc Wall'}>6" thick Rcc Wall</MenuItem>
+                                    <MenuItem value="AAC block Masonry in  C.M (1:6)">AAC block Masonry in  C.M (1:6)</MenuItem>
+                                    <MenuItem value="Chira stone Masonry">Chira stone Masonry</MenuItem>
 
-  </Select>
-</FormControl>
 
-<FormControl fullWidth margin="normal">
-  <InputLabel>Compound Wall</InputLabel>
-  <Select name="compound_wall" value={formData.compound_wall} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-<MenuItem value="Not Applicable">Not Applicable</MenuItem>
-<MenuItem value={"Property is surrounded by 5' height 9\" thick B.B Masonry"}>Property is surrounded by 5' height 9\" thick B.B Masonry</MenuItem>
-<MenuItem value="Barbed wired fencing">Barbed wired fencing</MenuItem>
-<MenuItem value="Pre casted compound wall">Pre casted compound wall</MenuItem>
-<MenuItem value="U.C.R Masonry compound wall">U.C.R Masonry compound wall</MenuItem>
+                                </Select>
 
-  </Select>
-</FormControl>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Super Structure Type"
+                                    name="super_structure_custom"
+                                    value={formData.super_structure_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom super structure"
+                                />
 
-<FormControl fullWidth margin="normal">
-  <InputLabel>MS Gate</InputLabel>
-  <Select name="ms_gate" value={formData.ms_gate} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Provided">Provided</MenuItem>
-    <MenuItem value="Not Provided">Not Provided</MenuItem>
-  </Select>
-</FormControl>
+                            </FormControl>
 
-<FormControl fullWidth margin="normal">
-  <InputLabel>Collapsible Shutter</InputLabel>
-  <Select name="collapsible_shutter" value={formData.collapsible_shutter} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Provided">Provided</MenuItem>
-    <MenuItem value="Not Provided">Not Provided</MenuItem>
-  </Select>
-</FormControl>
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="plaster-label">Plaster</InputLabel>
+                                <Select
+                                    labelId="plaster-label"
+                                    multiple
+                                    name="plaster"
+                                    value={formData.plaster ? formData.plaster.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "plaster",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Plaster"
+                                >
 
-<FormControl fullWidth margin="normal">
-  <InputLabel>MS Safety Door</InputLabel>
-  <Select name="ms_safety_door" value={formData.ms_safety_door} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Provided">Provided</MenuItem>
-    <MenuItem value="Not Provided">Not Provided</MenuItem>
-  </Select>
-</FormControl>
+                                    <MenuItem value="Internal & External sand faced in C.M (1:6) & (1:4)">Internal & External sand faced in C.M (1:6) & (1:4)</MenuItem>
+                                    <MenuItem value="Internal neeru finished and external sand faced cement plaster">Internal neeru finished and external sand faced cement plaster</MenuItem>
+                                    <MenuItem value="Internal wall putty finished plaster">Internal wall putty finished plaster</MenuItem>
+                                    <MenuItem value="Internal sand faced & external cement pointing ">Internal sand faced & external cement pointing</MenuItem>
+                                    <MenuItem value="Textured External plaster">Textured External plaster</MenuItem>
 
-{/* <FormControl fullWidth margin="normal">
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Plaster Type"
+                                    name="plaster_custom"
+                                    value={formData.plaster_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom plaster type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="windows">Windows</InputLabel>
+                                <Select
+                                    labelId="Windows"
+                                    multiple
+                                    name="windows"
+                                    value={formData.windows ? formData.windows.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "windows",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Windows"
+                                >
+
+                                    <MenuItem value="M.S.Grilled Glass paneled Aluminium sliding window">M.S.Grilled Glass paneled Aluminium sliding window </MenuItem>
+                                    <MenuItem value="M.S.Grilled Glass paneled Aluminium powder coated window">M.S.Grilled Glass paneled Aluminium powder coated window</MenuItem>
+                                    <MenuItem value="Teakwood framed Glass paneled  window">Teakwood framed Glass paneled  window</MenuItem>
+                                    <MenuItem value="Non-Teakhood framed Glass paneled  window">Non-Teakwood framed Glass paneled  window</MenuItem>
+                                    <MenuItem value="UPVC framed Glass paneled window">UPVC framed Glass paneled window</MenuItem>
+                                    <MenuItem value="Cement concrete framed bison paneled shutter window">Cement concrete framed bison paneled shutter window</MenuItem>
+
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Window Type"
+                                    name="windows_custom"
+                                    value={formData.windows_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom window type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="door">Door</InputLabel>
+                                <Select
+                                    labelId="door"
+                                    multiple
+                                    name="door"
+                                    value={formData.door ? formData.door.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "door",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Plaster"
+                                >
+
+                                    <MenuItem value="Main door Teakwood framed paneled door & Internal doors in granite framed flush doors">Main door Teakwood framed paneled door & Internal doors in granite framed flush doors</MenuItem>
+                                    <MenuItem value="Cement concrete framed flush door">Cement concrete framed flush door</MenuItem>
+                                    <MenuItem value="Cement concrete framed bison paneled door">Cement concrete framed bison paneled door</MenuItem>
+                                    <MenuItem value=" W.C Bath PVC doors">W.C Bath PVC doors</MenuItem>
+                                    <MenuItem value="M.S safety front door">M.S safety front door</MenuItem>
+                                    <MenuItem value="M.S safety rear door">M.S safety rear door</MenuItem>
+                                    <MenuItem value="M.S safety doors front & rear">M.S safety doors front & rear</MenuItem>
+
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Door Type"
+                                    name="door_custom"
+                                    value={formData.door_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom door type"
+                                />
+                            </FormControl>
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="flooring-label">Flooring</InputLabel>
+                                <Select
+                                    labelId="flooring"
+                                    multiple
+                                    name="flooring "
+                                    value={formData.flooring ? formData.flooring.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "flooring",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Flooring"
+                                >
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Vitrified Tiles">Vitrified Tiles</MenuItem>
+                                    <MenuItem value="Ceramic Tiles">Ceramic Tiles</MenuItem>
+                                    <MenuItem value="M.M tile">M.M tile</MenuItem>
+                                    <MenuItem value="Marble">Marble</MenuItem>
+                                    <MenuItem value="Marbonite">Marbonite</MenuItem>
+                                    <MenuItem value="Granite">Granite</MenuItem>
+                                    <MenuItem value="I.P.S flooring">I.P.S flooring</MenuItem>
+                                    <MenuItem value="kotah Stone flooring">kotah Stone flooring</MenuItem>
+                                    <MenuItem value="Tandoor Stone flooring">Tandoor Stone flooring</MenuItem>
+                                    <MenuItem value="Rough Shahabad Stone flooring">Rough Shahabad Stone flooring</MenuItem>
+                                    <MenuItem value="Wooden flooring">Wooden flooring</MenuItem>
+
+
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Flooring Type"
+                                    name="flooring_custom"
+                                    value={formData.flooring_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom flooring type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="roof-label">Roof</InputLabel>
+                                <Select
+                                    labelId="roof"
+                                    multiple
+                                    name="roof"
+                                    value={formData.roof ? formData.roof.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "roof",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Roof"
+                                >
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="RCC Slab">RCC Slab</MenuItem>
+                                    <MenuItem value="G.I Sheet">GI Sheet</MenuItem>
+                                    <MenuItem value="A.C Sheet">A.C Sheet</MenuItem>
+                                    <MenuItem value="Manglore tile">Manglore tile</MenuItem>
+                                    <MenuItem value="Wooden fall ceiling">Wooden fall ceiling</MenuItem>
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Roof Type"
+                                    name="roof_custom"
+                                    value={formData.roof_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom roof type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="stair_case-label">Stair Case</InputLabel>
+                                <Select
+                                    labelId="stair_case-label"
+                                    multiple
+                                    name="stair_case"
+                                    value={formData.stair_case ? formData.stair_case.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "stair_case",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Stair Case"
+                                >
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="RCC Dog leged">RCC Dog leged</MenuItem>
+                                    <MenuItem value="RCC straight flight">RCC straight flight</MenuItem>
+                                    <MenuItem value="RCC curved">RCC curved</MenuItem>
+                                    <MenuItem value="Spiral">Spiral</MenuItem>
+                                    <MenuItem value="Qurter turned">Qurter turned</MenuItem>
+                                    <MenuItem value="Bifurcated">Bifurcated</MenuItem>
+                                    <MenuItem value="Bifurcated">Bifurcated</MenuItem>
+                                    <MenuItem value="Fabricated">Fabricated</MenuItem>
+
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Stair Case Type"
+                                    name="stair_case_custom"
+                                    value={formData.stair_case_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom stair case type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>Sanitary Ware</InputLabel>
+                                <Select name="sanitary_ware" value={formData.sanitary_ware} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Second quality">Second quality</MenuItem>
+                                    <MenuItem value="Standard quality">Standard quality</MenuItem>
+                                    <MenuItem value="Both Standard & Second quality">Both Standard & Second quality</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>Electrification</InputLabel>
+                                <Select name="electrification" value={formData.electrification} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Concealed wiring">Concealed wiring</MenuItem>
+                                    <MenuItem value="Casing caping Wiring">Casing caping Wiring</MenuItem>
+                                    <MenuItem value="Both Casing caping & Concealed Wiring">Both Casing caping & Concealed Wiring</MenuItem>
+
+                                </Select>
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>Provision of Drinking Water</InputLabel>
+                                <Select name="drinking_water" value={formData.drinking_water} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Yes">Yes</MenuItem>
+                                    <MenuItem value="No">No</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="coloring">Coloring</InputLabel>
+                                <Select
+                                    labelId="coloring"
+                                    multiple
+                                    name="coloring"
+                                    value={formData.coloring ? formData.coloring.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "coloring",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Coloring"
+                                >
+                                    <MenuItem value="Building is painted on either side ">Building is painted on either side</MenuItem>
+                                    <MenuItem value="Building is not painted ">Building is not painted</MenuItem>
+                                    <MenuItem value="Building is painted on either side with oil painted doors and frames by Asian paint">Building is painted on either side with oil painted doors and frames by Asian paint</MenuItem>
+                                    <MenuItem value="Building is painted on either side with oil painted doors and frames by Luster paint">Building is painted on either side with oil painted doors and frames by Luster paint</MenuItem>
+                                    <MenuItem value="Internal Only">Internal Only</MenuItem>
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Coloring Type"
+                                    name="coloring_custom"
+                                    value={formData.coloring_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom coloring type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="kitchen-label">Kitchen</InputLabel>
+                                <Select
+                                    labelId="kitchen-label"
+                                    multiple
+                                    name="kitchen"
+                                    value={formData.kitchen ? formData.kitchen.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "kitchen",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Kitchen"
+                                >
+                                    <MenuItem value="Kaddappa kitchen oota">Kaddappa kitchen oota</MenuItem>
+                                    <MenuItem value="Modular Kitchen  oota">Modular Kitchen oota</MenuItem>
+                                    <MenuItem value="Granite Kitchen oota">Granite Kitchen oota</MenuItem>
+                                    <MenuItem value="Marble Kitchen oota">Marble Kitchen oota</MenuItem>
+
+
+
+                                </Select>
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Kitchen Type"
+                                    name="kitchen_custom"
+                                    value={formData.kitchen_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom kitchen type"
+                                />
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>WC Bath</InputLabel>
+                                <Select name="wc_bath" value={formData.wc_bath} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="European Attached wc bath">European Attached wc bath</MenuItem>
+                                    <MenuItem value="Common">Common</MenuItem>
+                                    <MenuItem value="Attached">Attached</MenuItem>
+                                    <MenuItem value="both Attached & Common">both Attached & Common</MenuItem>
+
+                                </Select>
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel id="compound_wall-label">Compound Wall</InputLabel>
+                                <Select
+                                    labelId="compound_wall-label"
+                                    multiple
+                                    name="compound_wall"
+                                    value={formData.compound_wall ? formData.compound_wall.split(", ") : []}
+                                    onChange={(e) => {
+                                        const {
+                                            target: { value },
+                                        } = e;
+                                        const stringValue = typeof value === "string" ? value : value.join(", ");
+                                        handleChange({
+                                            target: {
+                                                name: "compound_wall",
+                                                value: stringValue,
+                                            },
+                                        });
+                                    }}
+                                    label="Compound Wall"
+                                >
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Not Applicable">Not Applicable</MenuItem>
+                                    <MenuItem value={"Property is surrounded by 5' height 9\" thick B.B Masonry"}>Property is surrounded by 5' height 9\" thick B.B Masonry</MenuItem>
+                                    <MenuItem value="Barbed wired fencing">Barbed wired fencing</MenuItem>
+                                    <MenuItem value="Pre casted compound wall">Pre casted compound wall</MenuItem>
+                                    <MenuItem value="U.C.R Masonry compound wall">U.C.R Masonry compound wall</MenuItem>
+                                    <MenuItem value="Other">Other</MenuItem>
+
+                                </Select>
+
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Specify Compound Wall Type"
+                                    name="compound_wall_custom"
+                                    value={formData.compound_wall_custom || ""}
+                                    onChange={handleChange}
+                                    placeholder="Enter custom compound wall type"
+                                />
+
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>MS Gate</InputLabel>
+                                <Select name="ms_gate" value={formData.ms_gate} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Provided">Provided</MenuItem>
+                                    <MenuItem value="Not Provided">Not Provided</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>Collapsible Shutter</InputLabel>
+                                <Select name="collapsible_shutter" value={formData.collapsible_shutter} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Provided">Provided</MenuItem>
+                                    <MenuItem value="Not Provided">Not Provided</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>MS Safety Door</InputLabel>
+                                <Select name="ms_safety_door" value={formData.ms_safety_door} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Provided">Provided</MenuItem>
+                                    <MenuItem value="Not Provided">Not Provided</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            {/* <FormControl fullWidth margin="normal">
   <InputLabel>Main Door</InputLabel>
   <Select name="main_door" value={formData.main_door} onChange={handleChange}>
     <MenuItem value=""><em>Select</em></MenuItem>
@@ -1142,27 +1436,27 @@ const [formData, setFormData] = useState({
   </Select>
 </FormControl> */}
 
-<FormControl fullWidth margin="normal">
-  <InputLabel>Glazed Tile Dado (Kitchen & W.C. Bath)</InputLabel>
-  <Select name="tile_dado" value={formData.tile_dado || ""} onChange={handleChange}>
-    <MenuItem value=""><em>Select</em></MenuItem>
-    <MenuItem value="Full height Glazed Tile Dado">Full height Glazed Tile Dado</MenuItem>
-    <MenuItem value="Not Provided">Not Provided</MenuItem>
-  </Select>
-</FormControl>
+                            <FormControl fullWidth margin="normal">
+                                <InputLabel>Glazed Tile Dado (Kitchen & W.C. Bath)</InputLabel>
+                                <Select name="tile_dado" value={formData.tile_dado || ""} onChange={handleChange}>
+                                    <MenuItem value=""><em>Select</em></MenuItem>
+                                    <MenuItem value="Full height Glazed Tile Dado">Full height Glazed Tile Dado</MenuItem>
+                                    <MenuItem value="Not Provided">Not Provided</MenuItem>
+                                </Select>
+                            </FormControl>
 
 
-                <TextField
-                                           label="built_up_area"
-                                           name="built_up_area"
-                                           value={formData.built_up_area}
-                                           onChange={handleChange}
-                                           fullWidth
-                                           margin="normal"
-                                           required
-                                       />                
-                               
-                                </div>
+                            <TextField
+                                label="built_up_area"
+                                name="built_up_area"
+                                value={formData.built_up_area}
+                                onChange={handleChange}
+                                fullWidth
+                                margin="normal"
+                                required
+                            />
+
+                        </div>
 
 
 
@@ -1171,7 +1465,7 @@ const [formData, setFormData] = useState({
                             <div className='section'>
                                 {formData.guts.map((gut, index) => {
                                     const gutNoKey = Object.keys(gut).find((k) => k.startsWith("gut_no"));
-                                    
+
                                     return (
                                         <div key={index} style={{ border: "1px solid #ccc", margin: "10px 0", padding: 10, borderRadius: 5 }}>
                                             <h4>Gut {index + 1}</h4>
@@ -1322,10 +1616,10 @@ const [formData, setFormData] = useState({
                                 renderValue={(selected) => selected.join(", ")}
                             >
                                 <MenuItem value="Vacant">Vacant</MenuItem>
-                                 <MenuItem value="No crop is gowing on it">No crop is gowing on it</MenuItem>
-                                 <MenuItem value="Rcc Bunglow">Rcc Bunglow</MenuItem>
-                                   <MenuItem value="Apartment Building">Apartment Building</MenuItem>
-                                    <MenuItem value="Load Bearing ">Apartment Building</MenuItem>
+                                <MenuItem value="No crop is gowing on it">No crop is gowing on it</MenuItem>
+                                <MenuItem value="Rcc Bunglow">Rcc Bunglow</MenuItem>
+                                <MenuItem value="Apartment Building">Apartment Building</MenuItem>
+                                <MenuItem value="Load Bearing ">Apartment Building</MenuItem>
                                 <MenuItem value="Turmeric">Turmeric</MenuItem>
                                 <MenuItem value="Sugarcane">Sugarcane</MenuItem>
                                 <MenuItem value="Grapes">Grapes</MenuItem>
