@@ -191,7 +191,7 @@ const Rcc = () => {
         e.preventDefault();
 
         // List of fields that are OPTIONAL (all others will be treated as required)
-        const optionalFields = ["east", "west", "south", "north","Bank_name"];
+        const optionalFields = ["east", "west", "south", "north", "Bank_name"];
 
         // Check for empty fields except optional ones
         const emptyField = Object.keys(formData).find((field) => {
@@ -375,7 +375,7 @@ const Rcc = () => {
                                 name="bank_name"
                                 value={formData.bank_name}
                                 onChange={handleChange}
-                                // required
+                            // required
                             >
                                 <MenuItem value="">Select Bank</MenuItem>
                                 <MenuItem value="Palus Sahakari Bank ltd. Palus, Main branch Palus">Palus Sahakari Bank ltd. Palus, Main branch Palus</MenuItem>
@@ -431,19 +431,19 @@ const Rcc = () => {
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala</MenuItem>
-                                
+
 
                             </Select>
-                      
-                                <TextField
-                                    fullWidth
-                                    margin="normal"
-                                    label="Specify Bank name"
-                                    name="bank_name_custom"
-                                    value={formData.bank_name_custom || ""}
-                                    onChange={handleChange}
-                                    placeholder="Enter custom document type"
-                                />
+
+                            <TextField
+                                fullWidth
+                                margin="normal"
+                                label="Specify Bank name"
+                                name="bank_name_custom"
+                                value={formData.bank_name_custom || ""}
+                                onChange={handleChange}
+                                placeholder="Enter custom document type"
+                            />
                         </FormControl>
                     </div>
                     {/* </Paper> */}
@@ -478,9 +478,15 @@ const Rcc = () => {
                                 <MenuItem value=""><em>Select Type</em></MenuItem>
                                 <MenuItem value="Industrial Shed">Industrial Shed</MenuItem>
                                 <MenuItem value="Farm House">Farm House</MenuItem>
+                                <MenuItem value="Residential building">Residential building</MenuItem>
                                 <MenuItem value="Godown Building">Godown Building</MenuItem>
+                                <MenuItem value="Residential-cum-commercial building">Residential-cum-commercial building</MenuItem>
+                                <MenuItem value="commercial building">commercial building</MenuItem>
                                 <MenuItem value="Storage Shed">Storage Shed</MenuItem>
+                                <MenuItem value="Green house">Green house</MenuItem>
+                                <MenuItem value="Pack house">Pack house</MenuItem>
                                 <MenuItem value="Cattle Shed">Cattle Shed</MenuItem>
+                                <MenuItem value="Raisin Shed">Raisin Shed</MenuItem>
                                 <MenuItem value="Cold Storage">Cold Storage </MenuItem>
 
 
@@ -714,7 +720,7 @@ const Rcc = () => {
                                 <MenuItem value="Parallelogram">Parallelogram</MenuItem>
                                 <MenuItem value="irregular">Irregular</MenuItem>
                                 <MenuItem value="Odd Shaped">Odd Shaped</MenuItem>
-                             
+
                             </Select>
                         </FormControl>
 
@@ -1260,7 +1266,7 @@ const Rcc = () => {
                                 <InputLabel>Provision of Drinking Water</InputLabel>
                                 <Select name="drinking_water" value={formData.drinking_water} onChange={handleChange}>
                                     <MenuItem value=""><em>Select</em></MenuItem>
-                                    <MenuItem value="Yes">Yes</MenuItem>
+                                    <MenuItem value="Yes">Yes , 1/2" coonection</MenuItem>
                                     <MenuItem value="No">No</MenuItem>
                                 </Select>
                             </FormControl>
@@ -1594,47 +1600,7 @@ const Rcc = () => {
                             <MenuItem value="2034-2035">2034-2035</MenuItem>
 
                         </TextField>
-                        <FormControl fullWidth margin="normal">
-                            <InputLabel id="crop-label">Select Crop</InputLabel>
-                            <Select
-                                labelId="crop-label"
-                                multiple
-                                name="crop"
-                                value={formData.crop ? formData.crop.split(", ") : []}
-                                onChange={(e) => {
-                                    const {
-                                        target: { value },
-                                    } = e;
-                                    const stringValue = typeof value === "string" ? value : value.join(", ");
-                                    handleChange({
-                                        target: {
-                                            name: "crop",
-                                            value: stringValue,
-                                        },
-                                    });
-                                }}
-                                renderValue={(selected) => selected.join(", ")}
-                            >
-                                <MenuItem value="Vacant">Vacant</MenuItem>
-                                <MenuItem value="No crop is gowing on it">No crop is gowing on it</MenuItem>
-                                <MenuItem value="Rcc Bunglow">Rcc Bunglow</MenuItem>
-                                <MenuItem value="Apartment Building">Apartment Building</MenuItem>
-                                <MenuItem value="Load Bearing ">Apartment Building</MenuItem>
-                                <MenuItem value="Turmeric">Turmeric</MenuItem>
-                                <MenuItem value="Sugarcane">Sugarcane</MenuItem>
-                                <MenuItem value="Grapes">Grapes</MenuItem>
-                                <MenuItem value="Soyabean">Soyabean</MenuItem>
-                                <MenuItem value="Fruits">Fruits</MenuItem>
-                                <MenuItem value="Vegetables">Vegetables</MenuItem>
-                                <MenuItem value="Jawar">Jawar</MenuItem>
-                                <MenuItem value="Wheat">Wheat</MenuItem>
-                                <MenuItem value="Rice">Rice</MenuItem>
-                                <MenuItem value="Cotton">Cotton</MenuItem>
-                                <MenuItem value="Maize">Maize</MenuItem>
-                                <MenuItem value="Pulses">Pulses</MenuItem>
-                            </Select>
-                        </FormControl>
-
+                       
                     </div>
                     {/* </Paper> */}
 

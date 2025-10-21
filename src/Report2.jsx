@@ -473,9 +473,7 @@ const Report2 = forwardRef(({ formData }, ref) => {
                 <div>
                     <h2>Brief Description</h2>
                     <p>
-                        Property in the form of {formData.property_type}. Type of soil is {formData.surface_type}. {formData.crop === "Vacant"
-                            ? "Presently, the property is vacant"
-                            : `Presently, the property is occupied by ${formData.crop}`}
+                        Property in the form of {formData.property_type}. Type of soil is {formData.surface_type}.
                         . Water Supply {formData.water}. Property Situated at {formData.location}
                     </p>
                 </div>
