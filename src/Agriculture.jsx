@@ -405,7 +405,7 @@ const Agriculture = () => {
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala</MenuItem>
-                                <MenuItem value="Other">Other</MenuItem>
+                                
 
                             </Select>
                         </FormControl>
