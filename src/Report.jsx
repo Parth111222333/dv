@@ -58,7 +58,9 @@ const Report = forwardRef(({ formData }, ref) => {
                     <div className="to-block">
                         To,<br />
                         Branch Manager,<br />
-                        {formData.bank_name}.
+                        {[formData.bank_name, formData.bank_name_custom]
+                                    .filter(Boolean)
+                                    .join(", ")}
                     </div>
 
                     <p>Respected Sir,</p>
@@ -84,7 +86,9 @@ const Report = forwardRef(({ formData }, ref) => {
                         <tbody>
                             <tr>
                                 <th>Purpose of valuation</th>
-                                <td>Loan Proposal With {formData.bank_name}</td>
+                                <td>Loan Proposal With  {[formData.bank_name, formData.bank_name_custom]
+                                    .filter(Boolean)
+                                    .join(", ")}</td>
                             </tr>
                             <tr>
                                 <th>{formData.gut_type}.</th>

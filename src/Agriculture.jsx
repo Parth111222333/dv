@@ -1,7 +1,7 @@
 import Report from './Report';
 
 
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import {
     TextField,
     Select,
@@ -349,7 +349,7 @@ const Agriculture = () => {
                                 name="bank_name"
                                 value={formData.bank_name}
                                 onChange={handleChange}
-                                required
+                               
                             >
                                 <MenuItem value="">Select Bank</MenuItem>
                                 <MenuItem value="Palus Sahakari Bank ltd. Palus, Main branch Palus">Palus Sahakari Bank ltd. Palus, Main branch Palus</MenuItem>
@@ -405,9 +405,21 @@ const Agriculture = () => {
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Urun-Islampur</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Audumbar</MenuItem>
                                 <MenuItem value="Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala ">Shree Datta nagari Sahakari PatSanstha Maryadit, Urun-Islampur,branch Shirala</MenuItem>
-                                
+
 
                             </Select>
+
+                            <TextField
+                                fullWidth
+                                margin="normal"
+                                label="Specify Bank name"
+                                name="bank_name_custom"
+                                value={formData.bank_name_custom || ""}
+                                onChange={handleChange}
+                                placeholder="Enter custom document type"
+                            />
+
+
                         </FormControl>
                     </div>
                     {/* </Paper> */}
